@@ -20,11 +20,9 @@ program exerC
     t = 0
 
     open(unit=100, file='exerC1_out.dat', status="new", action="write")
-    open(unit=200, file='E_1.dat', status="new", action="write")
 
     do i = 0, int(tempo/dt), 1
         write(unit=100, fmt=*) t, omega
-        write(unit=200, fmt=*) t, (omega*omega*l*l)*m/2 - l*cos(theta)*g*m
         call eu_cr(t,dt,l,theta,omega)
     enddo
 
@@ -42,7 +40,7 @@ subroutine eu_cr(t,dt,l,theta,omega)
     else if(theta < - pi) then
         theta = theta + 2*pi
     endif
-    
+
     omega_i = omega
     omega = omega - g*theta*dt/l
     theta = theta + omega_i*dt

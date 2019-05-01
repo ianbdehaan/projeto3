@@ -20,11 +20,9 @@ program exerC
     t = 0
 
     open(unit=100, file='exerC2_out.dat', status="new", action="write")
-    open(unit=200, file='E_2.dat', status="new", action="write")
 
     do i = 0, int(tempo/dt), 1
         write(unit=100, fmt=*) t, omega
-        write(unit=200, fmt=*) t, (omega*omega*l*l)*m/2 - l*cos(theta)*g*m
         call eu_cr(t,dt,l,theta,omega)
     enddo
 
