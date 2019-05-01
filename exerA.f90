@@ -3,12 +3,10 @@ program exerA
     implicit none
     real(8) :: v, dt, t, tempo
     integer :: i
-    read(*,*) v
-    read(*,*) dt
-    read(*,*) tempo
-    open(unit=100, file='velA_out.dat', status="new", action="write")
-
+    read(*,*) v,dt,tempo
     t = 0
+
+    open(unit=100, file='velA_out.dat', status="new", action="write")
 
     do i = 1, 1 + int(tempo/dt), 1
         write(100,*) t, v

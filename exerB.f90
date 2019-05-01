@@ -3,6 +3,7 @@ program exerA
     implicit none
     real(8) :: v,v_1,dt,t,tempo,a,s,s_T,v_T,vm,t_term
     integer :: i, i_T
+
     read(*,*) v   !le a partir do terminal a v inicial
     read(*,*) dt  !le a partir do terminal o intervalo dt entre os passos
     read(*,*) tempo   !le o tempo final a partir do terminal
@@ -10,9 +11,11 @@ program exerA
     i = 0             !inicia o contador
     v_1 = 0           !inicia a velocidade do passo -1
     s = 0             !inicia o espaço percorrido como sendo 0
-    do while(i<=int(tempo/dt) .or. v_1 /= v)
+    open(unit=100, file='data.dat', status="new", action="write")
 
+    do while(i<=int(tempo/dt) .or. v_1 /= v)
         if (i <= int(tempo/dt)) then
+            write(unit=100, fmt=*) t, v
             s = s + v*dt
             vm = vm + v
         endif
