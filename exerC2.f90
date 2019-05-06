@@ -22,7 +22,7 @@ program exerC
     open(unit=100, file='exerC2_out.dat', status="new", action="write")
 
     do i = 0, int(tempo/dt), 1
-        write(unit=100, fmt=*) t, omega
+        write(unit=100, fmt=*) t, theta
         call eu_cr(t,dt,l,theta,omega)
     enddo
 

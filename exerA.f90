@@ -3,6 +3,7 @@ program exerA
     implicit none
     real(8) :: v, dt, t, tempo
     integer :: i
+
     read(*,*) v,dt,tempo
     t = 0
 

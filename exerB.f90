@@ -11,11 +11,9 @@ program exerA
     i = 0             !inicia o contador
     v_1 = 0           !inicia a velocidade do passo -1
     s = 0             !inicia o espaço percorrido como sendo 0
-    open(unit=100, file='data.dat', status="new", action="write")
 
     do while(i<=int(tempo/dt) .or. v_1 /= v)
         if (i <= int(tempo/dt)) then
-            write(unit=100, fmt=*) t, v
             s = s + v*dt
             vm = vm + v
         endif
